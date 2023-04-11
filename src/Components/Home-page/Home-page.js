@@ -1,9 +1,47 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react'
 import './Home-page.css';
-import Product from '../Product/product';
 import ProductSlider from '../Product-slider/product-slider';
 
+import Product from '../Product/product';
+import { db } from "../FireBase-SDK";
+import { collection, getDocs } from "firebase/firestore";
+
 function HomePage() {
+  const [catFoods, setCatFoods] = useState([]);
+  const [dogFoods, setDogFoods] = useState([]);
+  const catFoodsCollectionRef = collection(db, "cat food");
+  const dogFoodsCollectionRef = collection(db, "dog food");
+
+  useEffect(() => {
+    const getCatFoods = async () => {
+      const data = await getDocs(catFoodsCollectionRef);
+      setCatFoods(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+  
+    getCatFoods();
+
+    const getDogFoods = async () => {
+      const data = await getDocs(dogFoodsCollectionRef);
+      setDogFoods(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+  
+    getDogFoods();
+  }, []);
+
+  const catFoodSlider = catFoods.map(item => (
+    <Product name={item.name} url={item.imgUrl} price={item.price}
+      description={item.description} productImageBG={item.productImageBG}
+      productCartButton={item.productCartButton}
+    />
+  ))
+
+  const dogFoodSlider = dogFoods.map(item => (
+    <Product name={item.name} url={item.imgUrl} price={item.price}
+      description={item.description} productImageBG={item.productImageBG}
+      productCartButton={item.productCartButton}
+    />
+  ))
+
   return (
 <div className='home-page'>
 
@@ -72,21 +110,26 @@ function HomePage() {
 
     {/************** products **************/}
 
-  <div className='cat-food'>
-    <div className='green-header'>Cat Foods</div>
+  <div className='product-slider-header'>
+    <div className='product-type' style={{color:'rgba(173, 193, 120, 1)'}}>
+      Cat Foods</div>
     <div className='trending-products'>Our Trending Products</div> 
   </div> 
 
 
   <div className='products'>
-      <ProductSlider />
+      <ProductSlider productType={catFoodSlider}/>
   </div >
 
-  <div className='cat-food'>
-    <div className='red-header'>Cat Foods</div>
+  <div className='product-slider-header'>
+    <div className='product-type' style={{color:'rgba(239, 71, 111, 1)'}}>
+      Dog Foods</div>
     <div className='trending-products'>Our Trending Products</div> 
   </div> 
   
+  <div className='products'>
+      <ProductSlider productType={dogFoodSlider}/>
+  </div >
 </div>
   )
 }

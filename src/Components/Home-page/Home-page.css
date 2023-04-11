@@ -63,15 +63,14 @@
         margin-right: 5%;
     }
 }
-.cat-food{
+.product-slider-header{
     display: relative;
     margin-top: 100px;
     margin-right: auto;
     margin-left: auto;
     text-align: center;
 }
-.green-header{
-    color: rgba(173, 193, 120, 1);
+.product-type{
     font-size: 36px;
     line-height: 42.19px;
     font-weight: 600;
@@ -81,10 +80,4 @@
     font-size: 24px;
     font-weight: 500;
     margin-right: 0px;
-}
-.red-header{
-    color: rgba(239, 71, 111, 1);
-    font-size: 36px;
-    line-height: 42.19px;
-    font-weight: 600;
 }

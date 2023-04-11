@@ -8,7 +8,6 @@
 .product-img-container{
     height: 299px;
     width: 298px;
-    background-color: var(--productImageBG);
     fill: solid;
     text-align: center;
     padding-top: 40px;
@@ -34,6 +33,5 @@
     display: inline-block;
     line-height: 35px;
     text-align: center;
-    background-color: var(--productCartButton);
     color: #F9FCEA;
 }

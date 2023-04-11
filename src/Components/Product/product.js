@@ -4,7 +4,7 @@ import './product.css';
 function product(props) {
   return (
     <div className='product-container'>
-        <div className='product-img-container' style={{"--productImageBG":"#F9FCEA"}}>
+        <div className='product-img-container' style={{backgroundColor:props.productImageBG}}>
             <img src={props.url} alt={props.name} className='product-img'/>
         </div>
         <div className='product-info'>
@@ -21,7 +21,8 @@ function product(props) {
                 <p>⭐</p>
             </div>
         </div>
-        <a className="btn btn-default product-btn" href='/' style={{"--productCartButton":"#ADC178"}}>Add To Cart</a>
+        <a className="btn btn-default product-btn" href='/'
+         style={{backgroundColor:props.productCartButton}}>Add To Cart</a>
     </div>
   )
 }
