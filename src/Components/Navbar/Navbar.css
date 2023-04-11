@@ -1,0 +1,128 @@
+ul {
+    list-style-type: none;
+}
+.nav{
+    /* display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10%;
+    padding-right: 10%;
+    color: #666569;
+    background-color: #F4FBF8;
+    height: 200px;
+    font-size: 20px; */
+
+
+    /* position: fixed; */
+    height: 150px;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #F4FBF8;
+    padding: 28px 12%;
+    transition: all .40s ease;
+    font-size: 20px;
+
+}
+.logo{
+    height: 124.89px;
+    width: 110px;
+}
+.navbar-items{
+    display: flex;
+}
+.items{
+    color: #666569;
+    padding: 5px 0;
+    margin: 0px 30px;
+    transition: all .50s ease;
+    text-decoration: none;
+}
+.items:hover{
+    color: #84B59F;
+}
+.items:active{
+    color: #84B59F;
+}
+.third-section{
+    display: flex;
+    flex-direction: row;
+}
+.search-bar{
+    margin-right: 20px;
+}
+.cart{
+    margin-top: 5px;
+}
+.heart{
+    margin-left: 20px;
+    margin-top: 5px;
+}
+::placeholder{
+    padding: 1rem;
+}
+.search-bar{
+    height: 35px;
+    border-color: #84B59F;
+    border-radius: 5px;    
+}
+.search{
+    position: absolute;
+    margin-top: 8px;
+    margin-left: 140px;
+    opacity: .4;
+}
+.menu-icon{
+    margin-left: 20px;
+    cursor: pointer;
+    z-index: 10000;
+    display: none;
+    margin-top: 5px;
+}
+@media (max-width: 1280px) {
+    .nav {
+        padding: 14px 2%;
+        transition: .2s;
+
+    }
+    .items{
+        padding: 5px 0;
+        margin: 0px 20px;
+    }
+}
+@media (max-width: 1090px){
+    .menu-icon{
+        display: block;
+    }
+    .navbar-items{
+        position: absolute;
+        top: .1%;
+        right: -100%;
+        width: 270px;
+        height: 29vh;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        border-radius: 10px;
+        transition: all .50s ease;
+        z-index: 100000;
+    }
+    .items{
+        display: block;
+        margin: 12px 0;
+        padding: 0px 25px;
+        transition: all .50s ease;
+    }
+    .items:hover{
+        color: #84B59F;
+        transform: translateY(5px);
+    }
+    .navbar-items.open{
+        right: .1%;
+    }
+}
