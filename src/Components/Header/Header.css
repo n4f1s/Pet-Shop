@@ -1,18 +1,10 @@
 .header{
     display: flex;
     justify-content: space-between;
-    padding-left: 8%;
-    padding-right: 8%;
     color: white;
     background-color: #84B59F;
     height: 91px;
     width: 100%;
-}
-@media (max-width: 1480px) {
-    .header {
-        padding-left: 1%;
-        padding-right: 1%;
-    }
 }
 @media (max-width: 1180px) {
     .header {
@@ -20,7 +12,6 @@
         height: fit-content;
     }
 }
-
 .header-item{
     list-style-type: none;
     display: inline-block;
@@ -58,6 +49,7 @@
 .header-btn{
     display: flex;
     flex-direction: row;
+    margin-right: 8%;
 }
 .sign-up-btn{
     background: transparent;
@@ -81,4 +73,9 @@
     margin-top: 35px;
     margin-left: 20px;
     white-space: nowrap;
+    border: none;
+    cursor: pointer;
+}
+.header-margin{
+    margin-left: 8%;
 }

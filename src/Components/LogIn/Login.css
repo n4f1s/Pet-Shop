@@ -1,0 +1,100 @@
+.modal-bg{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    position: fixed;
+    display: flex;
+    z-index: 10;
+    color: black;
+}
+.modal-container{
+    width: 500px;
+    height: 947px;
+    background-color: #FFFFFF;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    box-shadow: 0px, 0px
+    rgba(0, 0, 0, 0.05);
+    padding-top: 60px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.modal-header{
+    display: flex;
+    
+}
+.modal-header-text{
+    font-size: 36.81px;
+    font-weight: 500;
+    line-height: 43.14px;
+}
+.modal-exit{
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    cursor: pointer;
+}
+.modal-input-header-text{
+    margin-top: 25px;
+    font-weight: 500;
+    font-size: 18.87px;
+    line-height: 19.77px;
+    color: rgba(102, 101, 105, 1);
+}
+.modal-input{
+    margin-top: 10px;
+    height: 42px;
+    width: 416px;
+    border: 1px solid rgba(196, 229, 214, 1);
+    outline: rgba(248, 248, 248, 1) solid 5px;
+    border-radius: 2px;
+}
+.modal-checkbox{
+    margin-top: 10px;
+    display: flex;
+}
+.modal-remember-me{
+    margin-left: 5px;
+    color: rgba(155, 155, 156, 1);
+    font-weight: 400;
+    font-size: 12.27px;
+    line-height: 14.38px;
+}
+.modal-forget-pass{
+    margin-left: 48%;
+    color: rgba(132, 181, 159, 1);
+    font-weight: 400;
+    font-size: 12.27px;
+    line-height: 14.38px;
+}
+.modal-btn{
+    color: aliceblue;
+    outline: rgba(248, 248, 248, 1) solid 2px;
+    width: 416px;
+    height: 42px;
+    border-radius: 1px;
+    border: none;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: 20px;
+    line-height: 23.44px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.modal-login-with{
+    font-size: 16.87px;
+    line-height: 19.77px;
+    font-weight: 500;
+    color: rgba(102, 101, 105, 1);
+    text-align: center;
+    margin-top: 15px;
+}
+.modal-creacte-account{
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23.44px;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: underline;
+}

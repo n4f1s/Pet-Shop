@@ -9,10 +9,13 @@ import {
     Route
   } from "react-router-dom";
 
-function App(){
+
+function App(showModal, setShowModal){
 
         return(
+
             <Router>
+
                 <Navbar />
                 <Header />
                 <Routes>

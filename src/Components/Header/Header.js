@@ -1,10 +1,21 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './Header.css';
+import { SignIn } from '../LogIn/LogIn';
 
-function header() {
+function Header() {
+
+    /******* Pupup modal ********/
+
+    const [showModal, setShowModal] = useState(false)
+    const openModal = () => {
+        setShowModal(prev => !prev);
+    };
+    /*******End *******/
   return (
+
     <div className='header'>
-        <ul>
+        <SignIn showModal={showModal} setShowModal={setShowModal} />
+        <ul className='header-margin'>
             <i class="fa-regular fa-phone"></i>
             <li className='header-item'>
                 <span className='top-text'>Contact Us</span> <br></br> +8801234567895
@@ -40,16 +51,18 @@ function header() {
 
 
         <div className='header-btn'>
-            <div className='sign-up-btn'>
+            <button className='sign-up-btn' >
                 Sign Up
-            </div>
-            <div className='log-in-btn'>
+            </button>
+
+
+            <button className='log-in-btn' onClick={openModal}>
                 Login
-            </div>
+            </button>
         </div>
 
     </div>
   )
 }
 
-export default header;
+export default Header;

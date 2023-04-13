@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import Product from '../Product/product';
 import './product-slider.css';
 import { responsive, CustomDot } from '../Product/data';
 
