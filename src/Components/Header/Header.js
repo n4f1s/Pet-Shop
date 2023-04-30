@@ -1,20 +1,55 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import './Header.css';
-import { SignIn } from '../LogIn/LogIn';
+import { SignIn} from '../SignIn/SignIn';
+import { LogIn } from '../LogIn/LogIn';
+import {auth} from '../FireBase-SDK';
+import {  onAuthStateChanged, signOut } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
 
-function Header() {
+function Header(user) {
+    const [authUser, setAuthUser] = useState(null);
+
+    useEffect(() => {
+        const listen = onAuthStateChanged(auth, (user) => {
+            if(user) {
+                setAuthUser(user)
+            } 
+            else {
+                setAuthUser(null)
+            }
+        })
+    })
+
+    const navigate = useNavigate();
+ 
+    const handleLogout = () => {               
+        signOut(auth).then(() => {
+        // Sign-out successful.
+            navigate("/");
+            console.log("Signed out successfully")
+        }).catch((error) => {
+        // An error happened.
+            console.log(error);
+        });
+    }
 
     /******* Pupup modal ********/
 
-    const [showModal, setShowModal] = useState(false)
-    const openModal = () => {
-        setShowModal(prev => !prev);
+    const [showLogInModal, setShowLogInModal] = useState(false)
+    const openLogInModal = () => {
+        setShowLogInModal(prev => !prev);
+    };
+
+    const [showSignInModal, setShowSignInModal] = useState(false)
+    const openSignInModal = () => {
+        setShowSignInModal(prev => !prev);
     };
     /*******End *******/
   return (
 
     <div className='header'>
-        <SignIn showModal={showModal} setShowModal={setShowModal} />
+        <LogIn showLogInModal={showLogInModal} setShowLogInModal={setShowLogInModal} />
+        <SignIn showSignInModal={showSignInModal} setShowSignInModal={setShowSignInModal} />
         <ul className='header-margin'>
             <i class="fa-regular fa-phone"></i>
             <li className='header-item'>
@@ -49,17 +84,24 @@ function Header() {
             </li>
         </ul>
 
-
+        { !authUser ? 
         <div className='header-btn'>
-            <button className='sign-up-btn' >
+            <button className='sign-up-btn' onClick={openSignInModal}>
                 Sign Up
             </button>
 
-
-            <button className='log-in-btn' onClick={openModal}>
-                Login
+            <button className='log-in-btn' onClick={openLogInModal}>
+                LogIn
             </button>
         </div>
+        :   
+        <div>
+            <p className='user-name'>{`${authUser.email}`}</p>
+            <button className='log-out-btn' onClick={handleLogout}>
+                LogOut
+            </button>
+        </div>
+        }
 
     </div>
   )

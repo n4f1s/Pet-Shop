@@ -79,3 +79,23 @@
 .header-margin{
     margin-left: 8%;
 }
+.user-name{
+    font-size: larger;
+    margin-right: 20px;
+}
+.log-out-btn{
+    background: white;
+    height: fit-content;
+    color:#84B59F;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 1px;
+    line-height: 24px;
+    margin-top: 15px;
+    margin-left: 50px;
+    white-space: nowrap;
+    border: none;
+    cursor: pointer;
+}

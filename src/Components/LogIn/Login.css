@@ -9,7 +9,8 @@
 }
 .modal-container{
     width: 500px;
-    height: 947px;
+    /* height: 947px; */
+    height: 100%;
     background-color: #FFFFFF;
     position: absolute;
     top: 0px;
@@ -81,6 +82,11 @@
     line-height: 23.44px;
     font-weight: 500;
     cursor: pointer;
+}
+.modal-btn-icon{
+    position: absolute;
+    left: 55px;
+    padding-top: 3px;
 }
 .modal-login-with{
     font-size: 16.87px;

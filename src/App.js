@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../src/Components/Navbar/Navbar';
 import HomePage from '../src/Components/Home-page/Home-page';
-import Header from '../src/Components/Header/Header';
+import Reset from '../src/Components/Reset-password/reset';
 import './App.css';
 import {
     BrowserRouter as Router,
@@ -17,9 +17,9 @@ function App(showModal, setShowModal){
             <Router>
 
                 <Navbar />
-                <Header />
                 <Routes>
                 <Route path="/" element={<HomePage/>} />
+                <Route path="/reset" element={<Reset/>} />
                 </Routes>
             </Router>
         )

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import './Home-page.css';
 import ProductSlider from '../Product-slider/product-slider';
-
+import Navbar from '../Navbar/Navbar';
+import Header from '../Header/Header';
 import Product from '../Product/product';
 import { db } from "../FireBase-SDK";
 import { collection, getDocs } from "firebase/firestore";
@@ -44,7 +45,7 @@ function HomePage() {
 
   return (
 <div className='home-page'>
-
+    <Header />
             {/************ Hero section *************/}
 
   <div className='hero-section'>
