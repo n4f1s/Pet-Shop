@@ -1,7 +1,24 @@
 import React from 'react';
 import './product.css';
+import { UseStateValue } from '../Data-layer-for-addToCart/StateProvider';
 
 function product(props) {
+
+    const [cart, dispatch] = UseStateValue();
+    const addToCart = () => {
+        // dispatch the item into the data layer
+        dispatch({
+            type: 'ADD_TO_CART',
+            item:{
+                id: props.id,
+                name: props.name,
+                image: props.url,
+                description: props.description,
+                url: props.url,
+                price: props.price
+            },
+        });
+    };
   return (
     <div className='product-container'>
         <div className='product-img-container' style={{backgroundColor:props.productImageBG}}>
@@ -21,8 +38,9 @@ function product(props) {
                 <p>⭐</p>
             </div>
         </div>
-        <a className="btn btn-default product-btn" href='/'
-         style={{backgroundColor:props.productCartButton}}>Add To Cart</a>
+        <button className="btn btn-default product-btn" href='/' 
+        onClick={addToCart}
+         style={{backgroundColor:props.productCartButton}}>Add To Cart</button>
     </div>
   )
 }

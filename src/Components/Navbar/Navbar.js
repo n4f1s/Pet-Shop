@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import { CartList } from '../Cart-list/cart-list';
+import { UseStateValue } from '../Data-layer-for-addToCart/StateProvider';
 
-function navbar() {
+function Navbar() {
+  const [{ cart }, dispatch] = UseStateValue();
+
+  const [showCartListModal, setShowCartListModal] = useState(false)
+  const openCartListModal = () => {
+      setShowCartListModal(prev => !prev);
+  };
   return (
+    <div>
+      <CartList showCartListModal={showCartListModal} setShowCartListModal={setShowCartListModal} />
     <div className='nav'>
+      
       <div className='logo'>
         <img src={require('../Images/NavLogo.png')} alt='Logo' />
       </div>
@@ -25,8 +36,16 @@ function navbar() {
         </div>
 
         <div className='cart'>
-        <i class="fa-regular fa-cart-shopping"></i>
+          <a  className='cart-button' onClick={openCartListModal}>
+          <img src={require('../Images/ShoppingCart.png')} alt='cart' 
+            className='cart-img'/>
+          </a>
+
+          <div className='cart-text-bg'>
+            <p className='cart-text'>{cart?.length}</p>
+          </div>
         </div>
+
         <div className='heart'>
         <i class="fa-regular fa-heart"></i>
         </div>
@@ -36,7 +55,8 @@ function navbar() {
         </div>
       </div>
     </div>
+    </div>
   )
 }
 
-export default navbar;
+export default Navbar;

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './Home-page.css';
 import ProductSlider from '../Product-slider/product-slider';
-import Navbar from '../Navbar/Navbar';
 import Header from '../Header/Header';
 import Product from '../Product/product';
 import { db } from "../FireBase-SDK";
@@ -32,14 +31,14 @@ function HomePage() {
   const catFoodSlider = catFoods.map(item => (
     <Product name={item.name} url={item.imgUrl} price={item.price}
       description={item.description} productImageBG={item.productImageBG}
-      productCartButton={item.productCartButton}
+      productCartButton={item.productCartButton} id={item.id}
     />
   ))
 
   const dogFoodSlider = dogFoods.map(item => (
     <Product name={item.name} url={item.imgUrl} price={item.price}
       description={item.description} productImageBG={item.productImageBG}
-      productCartButton={item.productCartButton}
+      productCartButton={item.productCartButton} id={item.id}
     />
   ))
 

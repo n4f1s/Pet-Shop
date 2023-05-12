@@ -11,8 +11,6 @@ ul {
     background-color: #F4FBF8;
     height: 200px;
     font-size: 20px; */
-
-
     /* position: fixed; */
     height: 150px;
     width: 100%;
@@ -24,6 +22,7 @@ ul {
     justify-content: space-between;
     background-color: #F4FBF8;
     padding: 28px 12%;
+
     transition: all .40s ease;
     font-size: 20px;
 
@@ -58,6 +57,23 @@ ul {
 .cart{
     margin-top: 5px;
 }
+.cart-button{
+    cursor: pointer;
+}
+.cart-text-bg{
+    margin-top: -35px;
+    margin-left: 10px;
+    background-color: #84B59F;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+.cart-text{
+    text-align: center;
+    padding-top: 1px;
+    font-size: 10px;
+    color: aliceblue;
+}
 .heart{
     margin-left: 20px;
     margin-top: 5px;
@@ -87,7 +103,6 @@ ul {
     .nav {
         padding: 14px 2%;
         transition: .2s;
-
     }
     .items{
         padding: 5px 0;
@@ -113,10 +128,10 @@ ul {
         z-index: 100000;
     }
     .items{
-        display: block;
         margin: 12px 0;
         padding: 0px 25px;
         transition: all .50s ease;
+        display: none;
     }
     .items:hover{
         color: #84B59F;
@@ -124,5 +139,13 @@ ul {
     }
     .navbar-items.open{
         right: .1%;
+    }
+}
+@media (max-width: 500px){
+    .search-bar{
+        display: none;
+    }
+    .search{
+        display: none;
     }
 }
