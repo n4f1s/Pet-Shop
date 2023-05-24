@@ -7,18 +7,18 @@ import { responsive, CustomDot } from '../Product/data';
 function ProductSlider(props) {
 
   return (
- <Carousel 
-  responsive={responsive}
-  showDots={true}
-  customDot={<CustomDot />}
-  arrows={true}
-  ssr={true}
-  renderDotsOutside={true}
-  >
+    <Carousel 
+      responsive={responsive}
+      showDots={true}
+      customDot={<CustomDot />}
+      arrows={true}
+      ssr={true}
+      renderDotsOutside={true}
+    >
 
-  {props.productType}
+      {props.productType}
 
-</Carousel> 
+    </Carousel> 
   )
 }
 

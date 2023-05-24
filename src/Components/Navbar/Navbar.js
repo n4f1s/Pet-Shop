@@ -34,13 +34,11 @@ function Navbar() {
           <i class="fa-solid fa-magnifying-glass search"></i>
           <input type="text" placeholder="Search..." className='search-bar'></input>
         </div>
-
         <div className='cart'>
           <a  className='cart-button' onClick={openCartListModal}>
           <img src={require('../Images/ShoppingCart.png')} alt='cart' 
             className='cart-img'/>
           </a>
-
           <div className='cart-text-bg'>
             <p className='cart-text'>{cart?.length}</p>
           </div>

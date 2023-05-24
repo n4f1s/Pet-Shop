@@ -1,7 +1,7 @@
 import React,{useRef, useEffect, useState} from 'react';
 import './cart-list.css';
 import { UseStateValue } from '../Data-layer-for-addToCart/StateProvider';
-import { getTotalPrice } from '../Data-layer-for-addToCart/reducer';
+// import { getTotalPrice } from './cart-list-product';
 import CartListProduct from './cart-list-product';
 
 export const CartList = ({ showCartListModal, setShowCartListModal }) => {
@@ -15,6 +15,7 @@ export const CartList = ({ showCartListModal, setShowCartListModal }) => {
         setShowCartListModal(false);
       }
     };
+
     return (
         <>{ showCartListModal ? (
 
@@ -28,6 +29,7 @@ export const CartList = ({ showCartListModal, setShowCartListModal }) => {
                   onClick={() => setShowCartListModal(prev => !prev)}></i>
                 </div>
                   {/*********** Products List **********/}
+                  
                 <div className='cart-list-products'>
                   {cart.map(item => (
                     <CartListProduct
@@ -35,13 +37,28 @@ export const CartList = ({ showCartListModal, setShowCartListModal }) => {
                       name={item.name}
                       image={item.image}
                       price={item.price} 
-                      description={item.description} />
+                      description={item.description}
+                      amountP={item.amountP}
+                    />
                     )
                   )}
                 </div>
+{/* 
+                <article>
+                  {
+                    <div className='cart-list-products'>
+                      {
+                        cart?.map((item) =>(
+                          
+                        ))
+                      }
+                    </div>
+                  }
+                </article> */}
+
                   {/********* Product List End *********/}
                 <div className='cart-list-line'></div>
-                <strong className='total-price'>Total price : {getTotalPrice(cart)} TK</strong>
+                <strong className='total-price'>Total price :  TK</strong>
                 <div className='place-order'>
                   <button className='place-order-btn'>Place order</button>
                 </div>

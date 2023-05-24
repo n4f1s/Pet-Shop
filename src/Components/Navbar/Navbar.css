@@ -20,12 +20,10 @@ ul {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #F4FBF8;
+    background-color: white;
     padding: 28px 12%;
-
     transition: all .40s ease;
     font-size: 20px;
-
 }
 .logo{
     height: 124.89px;

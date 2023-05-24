@@ -1,26 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './product.css';
 import { UseStateValue } from '../Data-layer-for-addToCart/StateProvider';
 
-function product(props) {
+
+
+function Product(props) {
 
     const [cart, dispatch] = UseStateValue();
-    const addToCart = () => {
+    const AddToCart = (event) => {
+
         // dispatch the item into the data layer
-        dispatch({
-            type: 'ADD_TO_CART',
-            item:{
-                id: props.id,
-                name: props.name,
-                image: props.url,
-                description: props.description,
-                url: props.url,
-                price: props.price
-            },
-        });
+            dispatch({
+                type: 'ADD_TO_CART',
+                item:{
+                    id: props.id,
+                    name: props.name,
+                    image: props.url,
+                    description: props.description,
+                    price: props.price,
+                    amountP: 1
+                },
+            });
+        // Stops the button after click
+        event.currentTarget.disabled = true;
+
     };
+
+
   return (
-    <div className='product-container'>
+    <div className='product-container' id="cartHide">
         <div className='product-img-container' style={{backgroundColor:props.productImageBG}}>
             <img src={props.url} alt={props.name} className='product-img'/>
         </div>
@@ -39,10 +47,10 @@ function product(props) {
             </div>
         </div>
         <button className="btn btn-default product-btn" href='/' 
-        onClick={addToCart}
+        onClick={AddToCart}
          style={{backgroundColor:props.productCartButton}}>Add To Cart</button>
     </div>
   )
 }
 
-export default product;
+export default Product;
