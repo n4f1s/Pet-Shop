@@ -18,7 +18,7 @@ function Product(props) {
                     image: props.url,
                     description: props.description,
                     price: props.price,
-                    amountP: 1
+                    quantity: 1
                 },
             });
         // Stops the button after click

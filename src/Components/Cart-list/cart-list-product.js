@@ -3,45 +3,34 @@ import { UseStateValue } from '../Data-layer-for-addToCart/StateProvider';
 import './cart-list.css';
 import { getTotalPrice } from '../Data-layer-for-addToCart/reducer';
 
-function CartListProduct({ id, name, price, image, description, amountP }) {
+function CartListProduct({ id, name, price, image, description, quantity }) {
+
   const [ { cart }, dispatch] = UseStateValue();
+
   const removeProductFromCart = () => {
     dispatch({
       type: 'REMOVE_FROM_CART',
       id: id,
     });
   }
-
-  const [totalPrice, setTotalPrice] = useState(0);
-
-  const handleTotalPrice = () => {
-    let ans = 0;
-    cart.map((item) => (
-      ans += amountP * price
-    ))
-    setTotalPrice(ans);
-  }
-
-  useEffect(() => {
-    handleTotalPrice();
-  })
+  const updateQuantity = (id, quantity) => {
+    dispatch({ type: 'UPDATE_QUANTITY', id, quantity });
+  };
 
   const [ amount, setAmount ]  = useState(1);
-  let a = getTotalPrice(cart);
   const handleDecrement = () => {
-
+    if(amount <= 1){
+      return setAmount(1);
+    }
     setAmount(amount - 1);
-      if(amount <= 1){
-        setAmount(1)
-      }
+    updateQuantity(id, quantity - 1);
   }
   const handleIncrement = () => {
     setAmount(amount + 1);
-
+    updateQuantity(id, quantity + 1);
   }
-
-
-
+  quantity = amount;
+  console.log("product amount " + quantity);
   return (
     <div className='cart-list-product-container'>
       <div className='cart-list-product-imgPlusText-container'>
@@ -66,7 +55,7 @@ function CartListProduct({ id, name, price, image, description, amountP }) {
                 <div className='increment-box'>-</div>
               </i>
 
-              <div><strong className='amount-number'>{amount}</strong></div>
+              <div><strong className='amount-number'>{quantity}</strong></div>
 
               <i onClick={handleIncrement}>
                 <div className='increment-box'>+</div>

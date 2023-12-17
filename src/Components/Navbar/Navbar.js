@@ -9,7 +9,8 @@ function Navbar() {
 
   const [showCartListModal, setShowCartListModal] = useState(false)
   const openCartListModal = () => {
-      setShowCartListModal(prev => !prev);
+    setShowCartListModal(prev => !prev);
+    document.body.style.overflow = 'hidden';
   };
   return (
     <div>
@@ -34,15 +35,19 @@ function Navbar() {
           <i class="fa-solid fa-magnifying-glass search"></i>
           <input type="text" placeholder="Search..." className='search-bar'></input>
         </div>
+
+        {/* Code for cart in the navbar */}
+
         <div className='cart'>
-          <a  className='cart-button' onClick={openCartListModal}>
-          <img src={require('../Images/ShoppingCart.png')} alt='cart' 
-            className='cart-img'/>
-          </a>
+          <div  className='cart-button' onClick={openCartListModal}>
+            <img src={require('../Images/ShoppingCart.png')} alt='cart' className='cart-img'/>
+          </div>
           <div className='cart-text-bg'>
             <p className='cart-text'>{cart?.length}</p>
           </div>
         </div>
+
+        {/* Code for heart in the navbar */}
 
         <div className='heart'>
         <i class="fa-regular fa-heart"></i>

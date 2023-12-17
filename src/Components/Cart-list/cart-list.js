@@ -1,21 +1,20 @@
 import React,{useRef, useEffect, useState} from 'react';
 import './cart-list.css';
 import { UseStateValue } from '../Data-layer-for-addToCart/StateProvider';
-// import { getTotalPrice } from './cart-list-product';
+import { getTotalPrice } from '../Data-layer-for-addToCart/reducer';
 import CartListProduct from './cart-list-product';
 
 export const CartList = ({ showCartListModal, setShowCartListModal }) => {
     const [{ cart }, dispatch] = UseStateValue();
 
-    console.log(cart.image);
     const modalRef = useRef()
 
     const closeModal = e => {
+      document.body.style.overflow = 'unset';
       if (modalRef.current === e.target) {
         setShowCartListModal(false);
       }
     };
-
     return (
         <>{ showCartListModal ? (
 
@@ -33,6 +32,7 @@ export const CartList = ({ showCartListModal, setShowCartListModal }) => {
                 <div className='cart-list-products'>
                   {cart.map(item => (
                     <CartListProduct
+                      key={item}
                       id={item.id}
                       name={item.name}
                       image={item.image}
@@ -43,22 +43,10 @@ export const CartList = ({ showCartListModal, setShowCartListModal }) => {
                     )
                   )}
                 </div>
-{/* 
-                <article>
-                  {
-                    <div className='cart-list-products'>
-                      {
-                        cart?.map((item) =>(
-                          
-                        ))
-                      }
-                    </div>
-                  }
-                </article> */}
 
                   {/********* Product List End *********/}
                 <div className='cart-list-line'></div>
-                <strong className='total-price'>Total price :  TK</strong>
+                <strong className='total-price'>Total price :{getTotalPrice(cart)}  TK</strong>
                 <div className='place-order'>
                   <button className='place-order-btn'>Place order</button>
                 </div>

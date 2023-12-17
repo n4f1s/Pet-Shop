@@ -38,11 +38,13 @@ function Header(user) {
     const [showLogInModal, setShowLogInModal] = useState(false)
     const openLogInModal = () => {
         setShowLogInModal(prev => !prev);
+        document.body.style.overflow = 'hidden';
     };
 
     const [showSignInModal, setShowSignInModal] = useState(false)
     const openSignInModal = () => {
         setShowSignInModal(prev => !prev);
+        document.body.style.overflow = 'hidden';
     };
     /*******End *******/
   return (

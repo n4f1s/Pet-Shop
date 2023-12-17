@@ -26,20 +26,20 @@ function HomePage() {
     };
   
     getDogFoods();
-  }, []);
+  });
 
   const catFoodSlider = catFoods.map(item => (
-    <Product name={item.name} url={item.imgUrl} price={item.price}
-      description={item.description} productImageBG={item.productImageBG}
-      productCartButton={item.productCartButton} id={item.id}
-    />
+      <Product key={item} name={item.name} url={item.imgUrl} price={item.price}
+        description={item.description} productImageBG={item.productImageBG}
+        productCartButton={item.productCartButton} id={item.id}
+      />
   ))
 
   const dogFoodSlider = dogFoods.map(item => (
-    <Product name={item.name} url={item.imgUrl} price={item.price}
-      description={item.description} productImageBG={item.productImageBG}
-      productCartButton={item.productCartButton} id={item.id}
-    />
+      <Product key={item} name={item.name} url={item.imgUrl} price={item.price}
+        description={item.description} productImageBG={item.productImageBG}
+        productCartButton={item.productCartButton} id={item.id}
+      />
   ))
 
   return (
@@ -112,7 +112,8 @@ function HomePage() {
 
   <div className='product-slider-header'>
     <div className='product-type' style={{color:'rgba(173, 193, 120, 1)'}}>
-      Cat Foods</div>
+      Cat Foods
+    </div>
     <div className='trending-products'>Our Trending Products</div> 
   </div> 
 

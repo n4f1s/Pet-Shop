@@ -14,6 +14,7 @@ export const SignIn = ({ showSignInModal, setShowSignInModal }) => {
 
   const modalRef = useRef()
   const closeModal = e => {
+    document.body.style.overflow = 'unset';
     if (modalRef.current === e.target) {
       setShowSignInModal(false);
     }
